@@ -2,12 +2,10 @@ package genericLirbrary;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -16,7 +14,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.google.common.io.Files;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ListenerImp implements ITestListener{
 	ExtentTest test;
@@ -24,7 +22,7 @@ public class ListenerImp implements ITestListener{
 	
 	@Override
 	public void onTestStart(ITestResult result) {
-		test=reports.createTest(result.getMethod().getMethodName());		
+		test=reports.createTest(result.getMethod().getMethodName()+"test execution started");		
 	}
 
 	@Override
@@ -41,7 +39,17 @@ public class ListenerImp implements ITestListener{
 
 	@Override
 	public void onStart(ITestContext context) {
-		ExtentSparkReporter reporter=new ExtentSparkReporter("");
+		ExtentSparkReporter reporter=new ExtentSparkReporter(IPathConstant.EXTREPORTPATH+JavaUtility.manageDate());
+		reporter.config().setDocumentTitle("VTiger");
+		reporter.config().setTheme(Theme.STANDARD);
+		reporter.config().setReportName("smoke");
+		
+		reports=new ExtentReports();
+		reports.attachReporter(reporter);
+		reports.setSystemInfo("browser version", "105");
+		reports.setSystemInfo("platform", "windows10");
+		reports.setSystemInfo("build no", "4.2");
+		reports.setSystemInfo("reporter name", "swarna");
 		
 		
 	}
@@ -53,11 +61,14 @@ public class ListenerImp implements ITestListener{
 	}
 
 	public void onTestFailure(ITestResult result) {
-		String currentDate = new Date().toString().replace(" ", "_").replace(":", "_");
+//		String currentDate = new Date().toString().replace(" ", "_").replace(":", "_");
 		String str=result.getMethod().getMethodName();
-		EventFiringWebDriver t=new EventFiringWebDriver(BaseClass.sdriver);
+		TakesScreenshot t=(TakesScreenshot)BaseClass.driver;
 		File src = t.getScreenshotAs(OutputType.FILE);
-		File dest=new File("./ScrnShot/"+str+currentDate+".png");
+		File dest=new File("./ScrnShot/"+str+JavaUtility.manageDate()+".png");
+		
+		test.log(Status.FAIL,result.getMethod().getMethodName()+"failed testcase");
+		test.log(Status.FAIL, result.getThrowable());
 		
 		try {
 			FileUtils.copyFile(src, dest);
@@ -71,7 +82,7 @@ public class ListenerImp implements ITestListener{
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
