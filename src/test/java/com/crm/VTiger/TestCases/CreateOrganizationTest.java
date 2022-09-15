@@ -12,7 +12,7 @@ import objectRepo.OrgInfoPageclass;
 
 public class CreateOrganizationTest extends BaseClass {
 	@Test
-	public static void test1() throws Throwable
+	public  void test1() throws Throwable
 	{
 		ExcelUtility eutil=new ExcelUtility();
 		String orgname=eutil.readDatafromExcel("Sheet1", 1, 1)+JavaUtility.generateRandomNumber();

@@ -23,10 +23,10 @@ import objectRepo.LoginPageclass;
 
 public class BaseClass {
 	public WebDriverUtility wutil=new WebDriverUtility();
-	public static WebDriver driver;
+	public WebDriver driver;
 	public PropertyFileUtility p=new PropertyFileUtility();
 
-//	public static WebDriver sdriver;
+	public static WebDriver sdriver;
 
 	@BeforeSuite(groups = {"smoke","regression"})
 	public void createConn()
@@ -49,7 +49,7 @@ public class BaseClass {
 			driver=new FirefoxDriver();
 		}
 		wutil.windowMaximize(driver);
-//		sdriver=driver;
+		sdriver=driver;
 		wutil.impwait(driver);
 	}
 
@@ -85,7 +85,7 @@ public class BaseClass {
 	}
 	public static String takingScreenShot(String name) throws Throwable
 	{
-		TakesScreenshot t=(TakesScreenshot)driver;
+		TakesScreenshot t=(TakesScreenshot)sdriver;
 		File src = t.getScreenshotAs(OutputType.FILE);
 		String path="./ScrnShot/"+name+".png";
 		File dest=new File(path);

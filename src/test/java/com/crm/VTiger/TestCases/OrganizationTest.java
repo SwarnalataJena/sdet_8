@@ -13,7 +13,7 @@ import objectRepo.Orgpageclass;
 
 public class OrganizationTest extends BaseClass{
 	@Test
-	public static void createOrg() throws Throwable
+	public void createOrg() throws Throwable
 	{
 		ExcelUtility eutil=new ExcelUtility();
 		String orgname=eutil.readDatafromExcel("Sheet1", 1, 1)+JavaUtility.generateRandomNumber();
