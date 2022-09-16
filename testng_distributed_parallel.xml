@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="classes" thread-count="2">
+<suite name="Suite" parallel="tests" thread-count="2">
 	<test name="Test1">
 		<classes>
-			<class name="com.crm.VTiger.TestCases.PurchaseOrderTest">
-				<methods>
-					<include name="withoutItems"></include>
-				</methods>
-			</class>
+			<class name="com.crm.VTiger.TestCases.PurchaseOrderTest"/>
 		</classes>
 	</test> <!-- Test -->
 	<test name="Test2">
 		<classes>
-			<class name="com.crm.VTiger.TestCases.PurchaseOrderTest">
-				<methods>
-					<include name="statusApproved"></include>
-				</methods>
-			</class>
+			<class name="com.crm.VTiger.TestCases.PurchaseOrderTest"/>
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
