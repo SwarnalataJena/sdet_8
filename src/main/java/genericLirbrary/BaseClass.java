@@ -38,7 +38,7 @@ public class BaseClass {
 	public void openBrowser() throws Throwable
 	{
 		System.out.println("========open browser=======");
-//				driver=new ChromeDriver();
+//		driver=new ChromeDriver();
 		String Browser = p.readDataFromPropertyFile("browser");
 		if(Browser.equals("chrome"))
 		{

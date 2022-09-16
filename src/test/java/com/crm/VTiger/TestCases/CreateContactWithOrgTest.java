@@ -1,5 +1,6 @@
 package com.crm.VTiger.TestCases;
 
+import org.testng.Reporter;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -23,8 +24,7 @@ public class CreateContactWithOrgTest extends BaseClass{
 		
 		HomePageclass hp=new HomePageclass(driver);
 //		click method is missing
-		hp.getCntactbutton();
-		
+		hp.getCntactbutton().click();
 		ContactPage cp=new ContactPage(driver);
 		cp.getPlussymbl().click();
 		
@@ -37,7 +37,8 @@ public class CreateContactWithOrgTest extends BaseClass{
 		
 		wutil.switchingwindow(driver, "Contacts");
 		
-		ccp.getSavebutton().click();	
+		ccp.getSavebutton().click();
+		Reporter.log("prepared for jenkins");
 	}
 
 }
