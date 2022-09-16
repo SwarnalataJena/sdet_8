@@ -8,9 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class Test3 {
+public class MakeMyTripWithDiffLocation {
 	@Test(dataProvider = "giveData")
-	public void testcase3(String src, String dest)
+	public void getData(String src, String dest)
 	{
 		WebDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();

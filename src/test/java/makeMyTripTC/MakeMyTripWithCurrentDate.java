@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Test1 {
+public class MakeMyTripWithCurrentDate {
 	public static void main(String[] args) throws Throwable {
 		Date d=new Date();
 		String str = d.toString();
