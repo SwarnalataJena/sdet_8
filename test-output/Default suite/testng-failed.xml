@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="makeMyTripTC.Test2">
+      <class name="makeMyTripTC.MakeMyTripWithFutureDate">
         <methods>
-          <include name="testcase2"/>
+          <include name="futureDate"/>
         </methods>
-      </class> <!-- makeMyTripTC.Test2 -->
+      </class> <!-- makeMyTripTC.MakeMyTripWithFutureDate -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

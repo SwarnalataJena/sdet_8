@@ -31,8 +31,7 @@ public class IphonePriceComparisionTest {
 			}
 		}
 		String fprice=driver.findElement(By.xpath("//div[@class='_30jeq3 _16Jk6d']")).getText();
-		
-		
+				
 		driver.get("https://www.amazon.in/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));

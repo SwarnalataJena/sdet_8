@@ -54,17 +54,25 @@ public class WindowHandleWithAmazon {
 		r.keyRelease(KeyEvent.VK_ENTER);
 
 		Set<String> driverid = driver.getWindowHandles();
-		Iterator<String> it = driverid.iterator();
+//		Iterator<String> it = driverid.iterator();
 
-		while(it.hasNext())
+//		while(it.hasNext())
+//		{
+//			String winid = it.next();
+//			String title = driver.switchTo().window(winid).getTitle();	
+//			if(!title.contains("nav_cs_books"))
+//			{
+//				break;
+//			}
+//		}
+		for(String x:driverid)
 		{
-			String winid = it.next();
-			String title = driver.switchTo().window(winid).getTitle();	
-			if(!title.contains("nav_cs_books"))
+			String title=driver.switchTo().window(x).getTitle();
+			if(title.contains("nav_cs_fashion"))
 			{
-				break;
+				driver.switchTo().window(title);
 			}
 		}
-		driver.close();
+		
 	}
 }

@@ -30,9 +30,11 @@ public class MakeMyTripWithFutureDate {
 				for(int i=0;i<12;i++)
 				{
 					try {
-						driver.findElement(By.xpath("//div[@aria-label='Wed Feb 08 2023']")).click();
+//						driver.findElement(By.xpath("//div[@aria-label='Wed Feb 08 2023']")).click();
+						driver.findElement(By.xpath("//div[@aria-label='Wed Aug 16 2023']")).click();
 					} catch (Exception e) {
-						driver.findElement(By.xpath("//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")).click();
+//						driver.findElement(By.xpath("//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")).click();
+						driver.findElement(By.xpath("//span[@aria-label='Next Month']")).click();
 					}
 				}
 				
