@@ -25,7 +25,6 @@ public class BaseClass {
 	public WebDriverUtility wutil=new WebDriverUtility();
 	public WebDriver driver;
 	public PropertyFileUtility p=new PropertyFileUtility();
-
 	public static WebDriver sdriver;
 
 	@BeforeSuite(groups = {"smoke","regression"})

@@ -14,35 +14,27 @@ public class ReadingDataFromJDBCTest {
 	@Test
 	public static void readingJDBCdata() throws Throwable
 	{
-		//step2 connect the database
-		Connection con=null;
+		Connection con=null;   																				 //step2 connect the database
 		try {
-			//step1 register the driver
+			
 			Driver d=new Driver();
-			DriverManager.registerDriver(d);
-			
+			DriverManager.registerDriver(d);  																 //step1 register the driver
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/students","root","root");
-			
-			//step3 create statement
-			Statement stmt = con.createStatement();
-			
-			//step4 execute query
-			ResultSet result = stmt.executeQuery("select * from students_info;");
-			
+			Statement stmt = con.createStatement();     													//step3 create statement
+			ResultSet result = stmt.executeQuery("select * from students_info;");  							 //step4 execute query
 			while(result.next())
 			{
 				System.out.println(result.getString(1)+" "+result.getString(2)+" "+result.getString(4));
 			}
 		} 
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		finally
 		{
-	    //step5 close connection
-			System.out.println("connection is closed");
-	        con.close();
+	        System.out.println("connection is closed");
+	        con.close();                               														 //step5 close connection
 		}
 	}
 
